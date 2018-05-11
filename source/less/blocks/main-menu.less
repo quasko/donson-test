@@ -1,0 +1,43 @@
+.main-menu {
+  .reset-list;
+  display: flex;
+  justify-content: space-between;
+  background-color: @black;
+}
+
+.main-menu__item {
+  flex-grow: 1;
+
+  &--active {
+    background-color: @orange;
+
+    .main-menu__link {
+      color: @black;
+    }
+  }
+}
+
+.main-menu__link {
+  font-family: @glober-regular;
+  font-size: 14px;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 13px;
+  display: block;
+  padding-bottom: 9px;
+
+  &--active {
+    color: @black;
+    background-color: @orange;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: @black;
+    background-color: @orange;
+    transition: background-color 500ms;
+  }
+}

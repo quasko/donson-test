@@ -3,47 +3,53 @@
   <head>
     <meta charset="utf-8">
     <title>DonSon</title>
+    <link href="css/style.css" rel="stylesheet">
   </head>
   <body>
     <header class="page-header">
-      <a class="page-header__logo">
-        <img>
-      </a>
-      <p class="page-header__phone">8 (800) 555-35-35</p>
-      <p class="page-header__phone-text">Отдел по работе с дистрибьюторами</p>
-      <a class="page-header__call-order">Заказать звонок</a>
-      <nav class="page-header__nav main-nav">
+      <div class="page-header__top container">
+        <a class="page-header__logo">
+          <img src="img/logo.png" width="200" height="56">
+          <p class="page-header__logo-text">производство текстиля для сна</p>
+        </a>
+        <div class="page-header__phone-wrapper">
+          <p class="page-header__phone">8 (800) 555-35-35</p>
+          <p class="page-header__phone-text">Отдел по работе с дистрибьюторами</p>
+        </div>
+        <a class="page-header__call-order" href="#">Заказать звонок</a>
+      </div>
+      <nav class="page-header__nav main-nav container">
         <ul class="main-nav__list main-menu">
-          <li class="main-menu__item">
-            <a class="main-menu__link">Главная</a>
+          <li class="main-menu__item main-menu__item--active">
+            <a class="main-menu__link" href="#">Главная</a>
           </li>
           <li class="main-menu__item">
-            <a class="main-menu__link">Зарабатывать с donson</a>
+            <a class="main-menu__link" href="#">Зарабатывать с donson</a>
           </li>
           <li class="main-menu__item">
-            <a class="main-menu__link">О компании</a>
+            <a class="main-menu__link" href="#">О компании</a>
+          </li>
+          <li class="main-menu__item main-menu__item--active">
+            <a class="main-menu__link" href="#">Продукция и цены</a>
           </li>
           <li class="main-menu__item">
-            <a class="main-menu__link">Продукция и цены</a>
+            <a class="main-menu__link" href="#">Начать сотрудничество</a>
           </li>
           <li class="main-menu__item">
-            <a class="main-menu__link">Начать сотрудничество</a>
+            <a class="main-menu__link" href="#">Аналитика</a>
           </li>
           <li class="main-menu__item">
-            <a class="main-menu__link">Аналитика</a>
+            <a class="main-menu__link" href="#">Маркетинг</a>
           </li>
           <li class="main-menu__item">
-            <a class="main-menu__link">Маркетинг</a>
-          </li>
-          <li class="main-menu__item">
-            <a class="main-menu__link">Контакты</a>
+            <a class="main-menu__link" href="#">Контакты</a>
           </li>
         </ul>
       </nav>
     </header>
     <main class="page-main">
       <h1 class="visually-hidden">DonSon - производство текстиля для сна</h1>
-      <section class="banner">
+      <section class="banner container">
         <p class="banner__title">Станьте эксклюзивным дистрибьютором DonSon в своем регионе</p>
         <div class="banner__wrapper text-banner">
           <p class="text-banner__title">и зарабатывайте от 500 тыс. руб. в месяц</p>
@@ -58,7 +64,7 @@
         </div>
       </section>
       <section class="short-video">
-        <div class="short-video__description">
+        <div class="short-video__description container">
           <p class="short-video__text1">Посмотрите короткое видео</p>
           <p class="short-video__text2">чтобы узнать подробнее о нашем предложение для Дистрибьюторов</p>
         </div>

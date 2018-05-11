@@ -1,0 +1,90 @@
+.page-header__top {
+  display: flex;
+  align-items: flex-end;
+  padding-left: 21px;
+  padding-right: 9px;
+  margin-bottom: 13px;
+}
+
+.page-header__logo-text {
+  font-family: @glober-regular;
+  font-size: 14px;
+  line-height: 20px;
+  color: @black;
+  letter-spacing: 0.001em;
+  margin: 0;
+  padding: 0;
+}
+
+.page-header__phone-wrapper {
+  margin-left: auto;
+  margin-right: 45px;
+}
+
+.page-header__phone {
+  position: relative;
+  font-family: @glober-regular;
+  font-size: 26px;
+  line-height: 47px;
+  color: @blue;
+  margin: 0;
+  padding: 0;
+  padding-left: 35px;
+
+  &::before {
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 6px;
+    content: "";
+    width: 26px;
+    height: 26px;
+    background-image: url("../img/icon-phone.png");
+    background-repeat: no-repeat;
+  }
+}
+
+.page-header__phone-text {
+  font-family: @glober-regular;
+  font-size: 14px;
+  line-height: 20px;
+  color: @black;
+  letter-spacing: 0.001em;
+  margin: 0;
+  padding: 0;
+}
+
+.page-header__call-order {
+  position: relative;
+  display: block;
+  font-family: @glober-bold;
+  font-size: 16px;
+  line-height: 19px;
+  color: @black;
+  text-transform: uppercase;
+  background-color: @orange;
+  padding: 8px 0;
+  width: 216px;
+  text-align: center;
+  margin-bottom: 8px;
+  text-decoration: none;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: #222428;
+    top: 15px;
+  }
+
+  &::before {
+    left: 0;
+  }
+
+  &::after {
+    right: 0;
+  }
+}
