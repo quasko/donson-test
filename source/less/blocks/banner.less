@@ -1,17 +1,46 @@
+.banner {
+  position: relative;
+  background-image: url("../img/banner-background.jpg");
+  background-repeat: no-repeat;
+  background-position-x: 50%;
+  padding-top: 21px;
+  padding-bottom: 23px;
+  top: -21px;
+  margin-bottom: -31px;
+}
+
 .banner__title {
   margin: 0;
   font-family: @glober-regular;
   font-size: 30px;
   line-height: 42px;
+  letter-spacing: 0.005em;
   text-transform: uppercase;
   background-color: @blue;
-  padding: 13px 0;
+  padding: 21px 0 6px 0;
   color: #ffffff;
   text-align: center;
 }
 
 .banner__wrapper {
   width: 660px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  padding: 7px 0 37px 20px;
+  background-color: #ffffff;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    width: 257px;
+    height: 142px;
+    left: -117px;
+    bottom: -53px;
+    background-image: url("../img/towel.png");
+    background-repeat: no-repeat;
+  }
 }
 
 .banner__link {
@@ -21,9 +50,92 @@
   text-transform: uppercase;
   color: @black;
   background-color: @orange;
-  padding: 10px 30px;
-  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 5px 30px 0 30px;
+  margin-left: 202px;
   width: 216px;
+  position: relative;
   display: block;
   text-align: center;
+  text-decoration: none;
+  transition: background-color 500ms;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: #222428;
+    top: 18px;
+  }
+
+  &::before {
+    left: 0;
+  }
+
+  &::after {
+    right: 0;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: @black;
+    color: #ffffff;
+    transition: background-color 500ms;
+
+    .banner__link-arrow {
+      background-color: @black;
+      transition: background-color 500ms;
+
+      &::after {
+        border-left-color: #ffffff;
+        border-bottom-color: #ffffff;
+        transition: border-color 500ms;
+      }
+
+      &::before {
+        background-color: #ffffff;
+        transition: background-color 500ms;
+      }
+    }
+  }
+}
+
+.banner__link-arrow {
+  position: absolute;
+  display: block;
+  width: 23px;
+  height: 23px;
+  background-color: @orange;
+  border-radius: 50%;
+  top: 42px;
+  left: 96px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    border-left: 3px solid @black;
+    border-bottom: 3px solid @black;
+    border-top: 3px solid transparent;
+    border-right: 3px solid transparent;
+    transform: rotate(-45deg);
+    width: 4px;
+    height: 4px;
+    top: 7px;
+    left: 6px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: @black;
+    top: 7px;
+    left: 10px;
+  }
 }

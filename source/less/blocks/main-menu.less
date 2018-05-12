@@ -3,10 +3,25 @@
   display: flex;
   justify-content: space-between;
   background-color: @black;
+  position: relative;
+  z-index: 1;
 }
 
 .main-menu__item {
   flex-grow: 1;
+
+  &:first-child {
+    .main-menu__link {
+      padding-left: 17px;
+      padding-right: 18px;
+    }
+  }
+
+  &:last-child {
+    .main-menu__link {
+      padding-right: 23px;
+    }
+  }
 
   &--active {
     background-color: @orange;
@@ -25,8 +40,11 @@
   color: #ffffff;
   text-decoration: none;
   padding: 13px;
+  padding-top: 15px;
+  position: relative;
   display: block;
   padding-bottom: 9px;
+  transition: background-color 500ms;
 
   &--active {
     color: @black;
@@ -39,5 +57,24 @@
     color: @black;
     background-color: @orange;
     transition: background-color 500ms;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 10px;
+    height: 2px;
+    background-color: #222428;
+    top: 23px;
+  }
+
+  &::before {
+    left: 0;
+  }
+
+  &::after {
+    right: 0;
   }
 }
