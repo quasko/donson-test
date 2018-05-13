@@ -11,7 +11,8 @@ var rename = require("gulp-rename");
 var run = require("run-sequence");
 var del = require("del");
 var posthtml = require("gulp-posthtml");
-var concat = require('gulp-concat');
+var concat = require("gulp-concat");
+var uglify = require("gulp-uglify");
 
 gulp.task("style", function() {
   gulp.src("source/less/style.less")
@@ -46,11 +47,21 @@ gulp.task("html", function() {
     .pipe(gulp.dest("build"));
 });
 
+gulp.task("scripts", function() {
+  return gulp.src("source/js/*.js")
+    .pipe(concat("script.js"))
+    .pipe(gulp.dest("build/js"))
+    /*.pipe(uglify())
+    .pipe(rename("script.min.js"))
+    .pipe(gulp.dest("build/js"))*/;
+});
+
 gulp.task("build", function(done) {
   run(
     "clean",
     "copy",
     "style",
+    "scripts",
     "html",
     done
   );
@@ -66,5 +77,6 @@ gulp.task("serve", ["style"], function() {
   });
 
   gulp.watch("source/less/**/*.less", ["style"]);
-  gulp.watch("source/*.html").on("change", server.reload);
+  gulp.watch("source/*.html", ["html"]).on("change", server.reload);
+  gulp.watch("source/js/*.js", ["scripts"]).on("change", server.reload);
 });
