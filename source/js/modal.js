@@ -56,8 +56,8 @@ var mask = function(event) {
 };
 
 phoneInput.addEventListener("input", mask, false);
-inputs.forEach(function(item) {
-  item.addEventListener("input", function () {
+for(var i=0; i<inputs.length; i++) {
+  inputs[i].addEventListener("input", function () {
     if(this.checkValidity() == true) {
       this.classList.remove("form__input--invalid");
       this.classList.add("form__input--valid");
@@ -66,15 +66,15 @@ inputs.forEach(function(item) {
       this.classList.add("form__input--invalid");
     }
   })
-});
+}
 
 submitButton.addEventListener("click", function(event) {
   event.preventDefault();
   var errors = form.querySelectorAll(".form__error");
 
-  errors.forEach(function(item) {
-    item.remove();
-  });
+    for(var i = 0; i < errors.length; i++) {
+    errors[i].parentNode.removeChild(errors[i]);
+  };
 
   for (var i = 0; i < inputs.length; i++) {
     if(inputs[i].checkValidity() == false) {
@@ -121,11 +121,12 @@ submitButton.addEventListener("click", function(event) {
 var cleanForm = function() {
   form.reset();
   var errors = form.querySelectorAll(".form__error");
-  errors.forEach(function(item) {
-    item.remove();
-  });
-  inputs.forEach(function(item) {
-    item.classList.remove("form__input--valid");
-    item.classList.remove("form__input--invalid");
-  });
+  for(var i = 0; i < errors.length; i++) {
+    errors[i].parentNode.removeChild(errors[i]);
+  };
+
+  for(var i = 0; i< inputs.length; i++) {
+    inputs[i].classList.remove("form__input--valid");
+    inputs[i].classList.remove("form__input--invalid");
+  }
 };
