@@ -5,10 +5,33 @@ var menuItems = document.querySelectorAll(".main-menu__item");
 var firstItem = document.querySelector(".main-menu__item:first-child");
 var refElements = [];
 var menuTopY = menu.offsetTop;
-console.log(menuTopY);
+
+var links = document.querySelectorAll(".main-menu a[href*='#'");
+var scrollSpeed = 0.5;
+
+links.forEach(function(item) {
+  item.addEventListener("click", function(event) {
+    event.preventDefault();
+    var currentPosition = window.pageYOffset;
+    var href = item.getAttribute("href");
+    var targetY = document.querySelector(href).getBoundingClientRect().top;
+    var start = null;
+    var step = function(time) {
+      if (start === null) start= time;
+      var progress = time - start;
+      var jump = (targetY < 0 ? Math.max(currentPosition - progress/scrollSpeed,currentPosition+targetY): Math.min(currentPosition + progress/scrollSpeed, currentPosition + targetY));
+      window.scrollTo(0, jump);
+      if (jump != currentPosition+targetY) {
+        requestAnimationFrame(step);
+      } else {
+        location.hash = href;
+      }
+    }
+    requestAnimationFrame(step);
+  });
+});
 
 var scrollMenu = function() {
-    //console.log(window.pageYOffset);
   var currentPosition = window.pageYOffset;
   if (currentPosition > menuTopY) {
     menu.classList.add("main-nav--fixed");
@@ -17,17 +40,14 @@ var scrollMenu = function() {
     firstItem.classList.add("main-menu__item--active");
   }
 
-  menuItems.forEach(function(item, i, menuItems){
+  menuItems.forEach(function(item){
     item.querySelector("a").blur();
     var href = item.querySelector("a").getAttribute("href");
     var element = document.querySelector(href);
     var elementTop = element.offsetTop;
     var elementHeight = element.getBoundingClientRect().height;
-    //console.log(elementPos.top);
 
     if(elementTop <= currentPosition && elementTop + elementHeight > currentPosition) {
-      //console.log(item);
-
       item.classList.add("main-menu__item--active");
     } else {
       item.classList.remove("main-menu__item--active");
@@ -36,36 +56,14 @@ var scrollMenu = function() {
     if(currentPosition <= menuTopY) {
       firstItem.classList.add("main-menu__item--active");
     }
-    //console.log(href);
+
   });
 
 
 
 };
 
-
-
-var clickScroll = function(event) {
-  var target = event.target;
-
-
-
-  if(target.tagName == "A") {
-    event.preventDefault();
-    var href = target.getAttribute("href");
-    var element = document.querySelector(href);
-
-    /* window.scrollTo(0,elementTop);
-    console.log(element); */
-    window.scrollTo(0,element.offsetTop);
-
-
-  }
-}
-
-
-
 window.addEventListener("scroll", scrollMenu);
-menu.addEventListener("click", clickScroll);
+
 
 

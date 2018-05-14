@@ -1,0 +1,143 @@
+@keyframes bounce {
+  0% {
+    transform: translateY(-2000px) translateX(-50%);
+  }
+  70% {
+    transform: translateY(30px) translateX(-50%);
+  }
+  90% {
+    transform: translateY(-10px) translateX(-50%);
+  }
+  100% {
+    transform: translateY(0) translateX(-50%);
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 120px;
+  left: 50%;
+  z-index: 4;
+  display: none;
+  transform: translateX(-50%);
+  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  box-sizing: border-box;
+  padding: 20px;
+  background-color: #ffffff;
+
+  &--show {
+    display: block;
+    animation: bounce 0.6s;
+  }
+}
+
+.modal__title {
+  margin: 0;
+  font-family: @glober-regular;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: normal;
+  color: @black;
+  margin-bottom: 10px;
+}
+
+.modal__submit {
+  position: relative;
+  display: block;
+  align-self: flex-end;
+  font-family: @glober-bold;
+  font-size: 16px;
+  line-height: 19px;
+  color: @black;
+  text-transform: uppercase;
+  background-color: @orange;
+  padding: 12px 0 8px 0;
+  width: 216px;
+  text-align: center;
+  margin-bottom: 6px;
+  text-decoration: none;
+  border: 0;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: background-color 500ms;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: #222428;
+    top: 19px;
+  }
+
+  &::before {
+    left: 0;
+  }
+
+  &::after {
+    right: 0;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: @black;
+    color: #ffffff;
+    transition: background-color 500ms;
+  }
+}
+
+.modal__close {
+  position: absolute;
+  z-index: 3;
+  top: 10px;
+  right: 10px;
+  width: 25px;
+  height: 25px;
+  font-size: 0;
+  background-color: @orange;
+  transition: background-color 500ms;
+  //opacity: 0.5;
+  border-radius: 50%;
+  border: 0;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: @black;
+    transition: background-color 500ms;
+
+    &::before,
+    &::after {
+      background-color: #ffffff;
+      transition: background-color 500ms;
+    }
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 6px;
+    width: 50%;
+    height: 2px;
+    background-color: @black;
+
+
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
+
+
+
+
