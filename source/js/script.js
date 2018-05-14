@@ -56,14 +56,7 @@ var scrollMenu = function() {
     if(currentPosition <= menuTopY) {
       firstItem.classList.add("main-menu__item--active");
     }
-
   });
-
-
-
 };
 
 window.addEventListener("scroll", scrollMenu);
-
-
-

@@ -99,7 +99,7 @@ submitButton.addEventListener("click", function(event) {
   var errorsCount = form.querySelectorAll(".form__error").length;
 
   if(errorsCount === 0) {
-     var request = new XMLHttpRequest();
+    var request = new XMLHttpRequest();
     var data = new FormData(form);
 
     request.open(form.method, form.action);
@@ -129,7 +129,3 @@ var cleanForm = function() {
     item.classList.remove("form__input--invalid");
   });
 };
-
-
-
-
